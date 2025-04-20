@@ -1,15 +1,13 @@
-import React from "react";
+import BotCard from "./BotCard";
 
 export default function BotCollection({ bots, onEnlist }) {
   return (
-    <div>
-      <h2>Bot Collection</h2>
-      <div className="bot-list">
+    <div className="mt-4">
+      <h2 className="mb-3 fw-bold">Bot Collection</h2>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
         {bots.map((bot) => (
-          <div key={bot.id} onClick={() => onEnlist(bot)}>
-            <img src={bot.avatar_url} alt={bot.name} />
-            <h3>{bot.name}</h3>
-            <p>{bot.catchphrase}</p>
+          <div className="col" key={bot.id}>
+            <BotCard bot={bot} onClick={() => onEnlist(bot)} />
           </div>
         ))}
       </div>
